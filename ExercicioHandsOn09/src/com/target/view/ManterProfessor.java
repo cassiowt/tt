@@ -142,8 +142,8 @@ public class ManterProfessor {
 		end.add(e);
 		end.add(e1);
 
-		Professor prof = new Professor("9046133063", "Cássio Trindade", tel,
-				end, "128.125.698.32", 1000);
+		Professor prof = new Professor("9046133063", "Asfalto Trindade", tel,
+				end, "128.125.698.32", 2000);
 
 		ProfessorRepository pr = new ProfessorRepository(fabrica);
 		pr.save(prof);

@@ -30,10 +30,6 @@ public class CodigoPostal implements Serializable {
 	                    inverseJoinColumns = { @JoinColumn(name = "CIDADE_ID") })
 	private Set<Cidade> cidades = new HashSet<Cidade>();
 
-	@OneToOne(cascade = { CascadeType.PERSIST })
-	@JoinColumn(name = "ENDERECO_ID")
-	private Endereco enderecol;
-	
 	
 	private static final long serialVersionUID = 1L;
 

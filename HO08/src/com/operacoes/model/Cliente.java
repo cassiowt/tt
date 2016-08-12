@@ -29,7 +29,7 @@ public class Cliente implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	//@Column(name = "CLIENTE_ID")
+	@Column(name = "CLIENTE_ID")
 	private Long id;
 
 	@Column(name = "NOME_CLIENTE")

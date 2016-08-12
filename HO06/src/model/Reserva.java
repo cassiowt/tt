@@ -4,8 +4,18 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "RESERVAS")
@@ -15,7 +25,7 @@ public class Reserva {
 	@JoinTable(name = "RESERVA_CLIENTE", 
 						joinColumns = { @JoinColumn(name = "RESERVA_ID") }, 
 						inverseJoinColumns = { @JoinColumn(name = "CLIENTE_ID") })
-	private zl<Cliente> clientes  = new ArrayList<Cliente>();
+	private Collection<Cliente> clientes  = new ArrayList<Cliente>();
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -50,7 +60,7 @@ public class Reserva {
 		return clientes;
 	}
 
-	public void setClientes(Collection<Cliente> clientes) {
+	public void setClientes(ArrayList<Cliente> clientes) {
 		this.clientes = clientes;
 	}
 	

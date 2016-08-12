@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import com.target.model.Professor;
-
+@SuppressWarnings("unchecked")
 public class ProfessorRepository {
 
 	private EntityManager entityManager;
@@ -70,7 +70,8 @@ public class ProfessorRepository {
      * @param salario
      * @return lista de professores com salario superio ao parametro
      */
-    public List<Professor> getProfessores(int salario) {
+   
+	public List<Professor> getProfessores(int salario) {
           	return this.entityManager.createNamedQuery("professor.salario").setParameter("v", salario).getResultList();
     }
     /**

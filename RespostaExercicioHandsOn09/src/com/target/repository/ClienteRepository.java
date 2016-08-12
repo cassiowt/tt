@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import com.target.model.Cliente;
 import com.target.model.Professor;
 
+@SuppressWarnings("unchecked")
 public class ClienteRepository {
 
 	private EntityManager entityManager;
@@ -43,7 +44,7 @@ public class ClienteRepository {
         this.entityManager.close();
     }
  
-    public List<Cliente> getClientes() {
+	public List<Cliente> getClientes() {
         return this.entityManager.createNamedQuery("cliente.list")
                 .getResultList();
     }
@@ -63,8 +64,13 @@ public class ClienteRepository {
      }
      
      //****************************************************************************
-     public List<Professor> getClientesNomes(int valor) {
+     public List<Cliente> getClientesNomes(int valor) {
          
      	return this.entityManager.createNamedQuery("cliente.nome").setParameter("v", valor).getResultList();
+     }
+
+     public List<Cliente> getClientesTipoTelefones(String tipoTelefone) {
+    	 
+    	 return this.entityManager.createNamedQuery("cliente.telefone.byTipo").setParameter("tipoTelefone", tipoTelefone).getResultList();
      }
 }

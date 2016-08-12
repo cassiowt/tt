@@ -14,11 +14,11 @@ public class Aplicacao {
 
 	public static void main(String[] args) {
 		// insereCliente();
-		// buscaCliente( 3);
-		// buscaClienteQ();
+		// buscaCliente( 2);
+		 buscaClienteQ();
 		// findContatoRapido();
 		//atualizaCliente(3l);
-		removeCliente(1l);
+		//removeCliente(1l);
 
 	}
 
@@ -36,10 +36,8 @@ public class Aplicacao {
 
 			cliente.setEnderecos(end);
 
-			cliente.getTelefones().add(
-					new Telefone(12345, TipoTelefone.CELULAR));
-			cliente.getTelefones().add(
-					new Telefone(99999, TipoTelefone.RESIDENCIAL));
+			cliente.getTelefones().add(	new Telefone(12345, TipoTelefone.CELULAR));
+			cliente.getTelefones().add(	new Telefone(99999, TipoTelefone.RESIDENCIAL));
 
 			fabrica.getTransaction().begin();
 			fabrica.persist(cliente);
@@ -54,13 +52,13 @@ public class Aplicacao {
 	}
 
 	public static void buscaCliente(long Codigo) {
-		fabrica.getTransaction().begin();
+
 		// Busca o cliente, recebendo o Codigo como parametro
 		Cliente c = fabrica.find(Cliente.class, Codigo);
 		System.out.println("o Cliente codigo " + c.getId() + " é: "
 				+ c.getNome());
 		System.out.println("_____________________________________________");
-		fabrica.getTransaction().commit();
+
 		fabrica.close();
 	}
 

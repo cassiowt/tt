@@ -23,7 +23,6 @@ public class CartaoCredito {
 	private String bandeira;
 
 	public CartaoCredito() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public CartaoCredito(Cliente cliente, String numeroCartaoCredito,

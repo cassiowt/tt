@@ -23,6 +23,7 @@ public class ManterCliente {
 						+ "\n D - Para deletar um cliente"
 						+ "\n A - Para alterar um cliente"
 						+ "\n LN - Para listar Nome e CNPJ"
+						+ "\n LT - Para listar Cliente por tipo de Telefone"
 						+ "\n T - Para listar o total clientes");
 		String opcao = LER.next();
 		switch (opcao) {
@@ -51,11 +52,30 @@ public class ManterCliente {
 			break;
 		case "LN":
 			listaClientesNomeCnpj();
+		case "LT":
+			listaClientesTelefoneTipo();
 		default:
 			System.out.println("Nenuma opção valida foi selecionada");
 			break;
 		}
 
+	}
+
+	private static void listaClientesTelefoneTipo() {
+		ClienteRepository cli= new ClienteRepository(fabrica);
+		System.out.println("Digite R para telefones residencias e C para comercias");
+		String c = LER.next();
+		String tipo = c == "R" ? "Residencial" : "Comercial";
+		List<Cliente> clientes = cli.getClientesTipoTelefones(tipo);
+		StringBuilder sb = new StringBuilder();
+		for (Cliente cliente : clientes) {
+			sb.append(" cliente: " + cliente.getNome() + "CNPJ:	"+ cliente.getCnpj());
+			Collection<Telefone>  telefones = cliente.getTelefones();
+			for (Telefone telefone : telefones) {
+				sb.append("\t"+telefone);
+			}
+		}	
+		System.out.println(sb);
 	}
 
 	private static void listaClientesNomeCnpj() {

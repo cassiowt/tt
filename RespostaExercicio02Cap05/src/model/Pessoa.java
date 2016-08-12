@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class Pessoa implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(length=60)

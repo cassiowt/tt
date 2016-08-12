@@ -24,7 +24,8 @@ import javax.persistence.*;
 	@NamedQuery(name = "professor.count", query = "select count(p) from Professor p"),
 	@NamedQuery(name = "cliente.list", query = "select c from Cliente c order by c.id "),
 	@NamedQuery(name = "cliente.list.nome.cnpj", query = "select c.nome, c.cnpj from Cliente c order by c.id "),
-	@NamedQuery(name = "cliente.count", query = "select count(c) from Cliente c")
+	@NamedQuery(name = "cliente.count", query = "select count(c) from Cliente c"),
+	@NamedQuery(name = "cliente.telefone.byTipo", query = "select c from Cliente c  join c.telefones t where t.tipo = :tipoTelefone")
 })
 public abstract class  Pessoa implements Serializable {
 

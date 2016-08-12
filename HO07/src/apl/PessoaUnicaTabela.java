@@ -11,10 +11,10 @@ public class PessoaUnicaTabela {
 
 
 	public static void main(String[] args) {
-	//	persistePessoa();
+		persistePessoa();
 		persisteCliente();
-	//	persisteAluno();
-	//	persisteProfessor();
+		persisteAluno();
+		persisteProfessor();
 
 	}
 

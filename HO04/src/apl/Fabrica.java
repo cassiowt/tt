@@ -15,11 +15,10 @@ public class Fabrica {
 			EntityManager em = factory.createEntityManager();
 
 		 em.getTransaction().begin();
-		//	em.persist(c2);
 	 		em.getTransaction().commit();
 			em.close();
 
-			System.out.println("FGRABICADO COM SUCESSO; )");
+			System.out.println("FABrICADO COM SUCESSO; )");
 
 
 		} catch (RuntimeException e) {
